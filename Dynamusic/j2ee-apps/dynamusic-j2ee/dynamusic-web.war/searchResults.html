@@ -1,0 +1,81 @@
+<!-------------------------------------------------------------
+  Dynamusic Site                                DAF Site Mockup
+  
+  SEARCH RESULTS
+  
+  Display results of a user search, as links to song, artist,
+  and album pages.
+  
+  ------------------------------------------------------------->
+  
+
+<HTML>
+  <HEAD>
+    <TITLE>Dynamusic Search Results</TITLE>
+  </HEAD>
+  <BODY>
+    <!-- (replace this entire table by dynamically including 
+          common/header.html) -->
+    <img src="images/Dynamusic.jpg">
+    <table width="700" cellpadding="8">
+      <tr>
+        <td width="100"></td>
+        <td>
+          <!-- Header -->
+          <font face="Verdana,Geneva,Arial" size="+3" color="midnightblue">
+            Search Results 
+          </font>
+          <br>
+          <hr size="8">
+        </td>
+      </tr>
+    </table>
+    <table width="700" cellpadding="8">
+      <tr>
+        <!-- Sidebar -->
+        <td width="100" bgcolor="ghostwhite" valign="top">
+          <!-- (replace contents of this table cell by 
+                dynamically including common/sidebar.html) -->
+          <font face="Verdana,Geneva,Arial" 
+                size="-1" color="steelblue">
+            <b>
+              <a href="home.html">Home</a> <br>
+              &nbsp;<br>
+              <a href="artists.html">Artists</a> <br>
+              <a href="venues.html">Venues</a> <br>
+              <a href="search.html">Search</a> <br>
+              <a href="updateProfile.html">Profile</a> <br>
+              &nbsp;<br>
+              <a href="logout.html">Log Out</a> <br>
+              &nbsp;<p><hr height="1">
+            </b>
+            <font size="-2">
+              &nbsp;<br>
+              <a href="search.html">Search Again</a><br>
+              &nbsp;<p>
+            </font>
+          </font>
+        </td>
+        <!-- Page Body -->
+        <td valign="top">
+          <font face="Verdana,Geneva,Arial" size="-1">
+          
+          <!-- *** Start page content *** -->
+          
+            <p>The following songs match your criteria, <font color="red">Man</font>: <p>
+            
+            <ul>
+              <li> <a href="song.html">Man in the Moon</a> by <a href="artistDetails.html">R.E.M.</a> 
+              <li> <a href="song.html">I'm Your Man</a> by <a href="artistDetails.html">Leonard Cohen</a> 
+              <li> <a href="song.html">Missionary Man</a> by <a href="artistDetails.html">Eurythmics</a> 
+              <li> <a href="song.html">First We Take Manhattan</a> by <a href="artistDetails.html">Leonard Cohen</a>
+            </ul>
+            
+          <!-- *** End real content *** -->
+          
+          </font>
+        </td>
+      </tr>
+    </table>
+  </BODY>
+</HTML>

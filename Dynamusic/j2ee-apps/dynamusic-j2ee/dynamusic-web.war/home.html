@@ -1,0 +1,108 @@
+<!-------------------------------------------------------------
+  Dynamusic Site Mockup
+  
+  HOME
+  
+  Central page for the site; landing point following login, 
+  providing starting point for site's pages.
+  
+  ------------------------------------------------------------->
+  
+
+<HTML>
+  <HEAD>
+    <TITLE>Dynamusic Home</TITLE>
+  </HEAD>
+  <BODY>
+    <!-- (replace this entire section by dynamically including 
+          common/header.jsp) -->
+    <img src="images/Dynamusic.jpg">
+    <table width="700" cellpadding="8">
+      <tr>
+        <td width="100"></td>
+        <td>
+          <!-- Header -->
+          <font face="Verdana,Geneva,Arial" size="+3" color="midnightblue">
+            Home 
+          </font>
+          <br>
+          <hr size="8">
+        </td>
+      </tr>
+    </table>
+    <!-- (end header banner) -->
+    
+
+    <table width="700" cellpadding="8">
+      <tr>
+
+        <!-- Sidebar -->
+
+          <td width="100" bgcolor="ghostwhite" valign="top">
+          <!-- (replace contents of this table cell by 
+                dynamically including common/sidebar.html) -->
+          <font face="Verdana,Geneva,Arial" 
+                size="-1" color="steelblue">
+            <b>
+              <a href="home.html">Home</a><br>
+              &nbsp;<br>
+              <a href="artists.html">Artists</a> <br>
+              <a href="venues.html">Venues</a> <br>
+              <a href="search.html">Search</a> <br>
+              <a href="updateProfile.html">Profile</a> <br>
+              &nbsp;<br>
+              <a href="logout.html">Log Out</a> <br>
+              &nbsp;<br>
+            </b>
+          </font>
+          <!-- end sidebar -->
+        </td>
+
+        
+        <!-- Page Body -->
+        <td valign="top">
+          <font face="Verdana,Geneva,Arial" size="-1">
+          
+          <!-- *** Start page content *** -->
+          
+            <table width="560">
+              <tr>
+                <td>
+                  <p>Welcome, Arthur! <p>
+                  
+                  This week's featured songs are:
+                  <ul>
+                    <li> Famous Blue Raincoat 
+                    <li> Strawberry Fields Forever
+                    <li> Man on the Moon
+                    <li> Mummer's Dance
+                  </ul>
+                </td>
+                <td width="160" align="center">
+                  Featured Album:<br>
+                  <a href="albumDetails.html"><img src="images/BookOfSecrets.jpg"><br>
+                    <b>The Book of Secrets</b> - Loreena McKennitt
+                  </a>
+                </td>
+              </tr>
+              <tr><td height="80">&nbsp;</td><td></td></tr>
+              <tr>
+                <td valign="top">
+                  Playing at a venue near you... <p>
+                  <ul>
+                    <li> 22 May 2004 - <a href="concertDetails.html">Eric Clapton at the House of Blues</a>
+                    <li> 9 June 2004 - <a href="concertDetails.html">Loreena McKennitt at Sanders Theater</a>
+                    <li> 14 June 2004 - <a href="concertDetails.html">Shania Twain at the Fleet Center</a>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+            
+          <!-- *** End real content *** -->
+          
+          </font>
+        </td>
+      </tr>
+    </table>
+  </BODY>
+</HTML>

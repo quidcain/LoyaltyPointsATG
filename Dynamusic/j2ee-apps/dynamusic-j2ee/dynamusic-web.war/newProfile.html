@@ -1,0 +1,100 @@
+<!-------------------------------------------------------------
+  Dynamusic Site             DAF Site Mockup
+  
+  NEW PROFILE
+  
+  Allows creation of new user profile
+  
+  ------------------------------------------------------------->
+  
+
+<HTML>
+  <HEAD>
+    <TITLE>Dynamusic Edit Profile</TITLE>
+  </HEAD>
+  <BODY>
+    <img src="images/Dynamusic.jpg">
+    <table width="700" cellpadding="8">
+      <tr>
+        <td width="100"></td>
+        <td>
+          <!-- Header -->
+          <font face="Verdana,Geneva,Arial" size="+3" color="midnightblue">
+            New Profile 
+          </font>
+          <br>
+          <hr size="8">
+        </td>
+      </tr>
+    </table>
+    <table width="700" cellpadding="8">
+      <tr>
+        <!-- Sidebar -->
+        <td width="100" bgcolor="ghostwhite">
+          <!-- (replace contents of this table cell by 
+                dynamically including common/sidebar.html) -->
+          <font face="Verdana,Geneva,Arial" 
+                size="-1" color="steelblue">
+            <b>
+              <a href="home.html">Home</a> <br>
+              &nbsp;<br>
+              <a href="artists.html">Artist</a> <br>
+              <a href="venues.html">Venues</a> <br>
+              <a href="search.html">Search</a> <br>
+              <font color="darkred">Profile</font> <br>
+              &nbsp;<br>
+              <a href="logout.html">Log Out</a> <br>
+              &nbsp;<p><hr height="1">
+            </b>
+            <font size="-2">
+              &nbsp;<br>
+              <a href="home.html">Cancel</a><br>
+              &nbsp;<p>
+            </font>
+          </font>
+        </td>
+        <!-- Page Body -->
+        <td valign="top">
+          <font face="Verdana,Geneva,Arial" size="-1">
+          
+          <!-- *** Start page content *** -->
+            
+            <form action="updateProfile.html">
+              <table>
+                <tr>
+                  <td valign="middle" align="right"> login </td>
+                  <td valign="middle"> <input type="text"> </td>
+                </tr>
+                <tr>
+                  <td valign="middle" align="right"> password </td>
+                  <td valign="middle"> <input type="password"> </td>
+                </tr>
+                <tr>
+                  <td valign="middle" align="right"> confirm password </td>
+                  <td valign="middle"> <input type="text"></td>
+                </tr>
+                <tr> <td>&nbsp;</td> <td></td> </tr>
+                <tr>
+                <tr>
+                  <td valign="middle" align="right"> first name </td>
+                  <td valign="middle"> <input type="text"> </td>
+                </tr>
+                <tr>
+                  <td valign="middle" align="right"> last name </td>
+                  <td valign="middle"> <input type="text"> </td>
+                </tr>
+                <tr> <td>&nbsp;</td> <td></td> </tr>
+                 <tr>
+                  <td valign="middle" align="right"></td>
+                  <td valign="middle"> <input type="submit" value="create profile"> </td>
+                </tr>
+              </table>
+            
+          <!-- *** End real content *** -->
+          
+          </font>
+        </td>         
+      </tr>
+    </table>
+  </BODY>
+</HTML>

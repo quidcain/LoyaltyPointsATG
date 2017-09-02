@@ -1,0 +1,113 @@
+<!-------------------------------------------------------------
+  Dynamusic Site             DAF Site Mockup
+  
+  UPDATE PROFILE
+  
+  Gives user opportunity to change their profile data
+  
+  ------------------------------------------------------------->
+  
+
+<HTML>
+  <HEAD>
+    <TITLE>Dynamusic Edit Profile</TITLE>
+  </HEAD>
+  <BODY>
+    <img src="images/Dynamusic.jpg">
+    <table width="700" cellpadding="8">
+      <tr>
+        <td width="100"></td>
+        <td>
+          <!-- Header -->
+          <font face="Verdana,Geneva,Arial" size="+3" color="midnightblue">
+            Edit Arthur's Profile 
+          </font>
+          <br>
+          <hr size="8">
+        </td>
+      </tr>
+    </table>
+    <table width="700" cellpadding="8">
+      <tr>
+        <!-- Sidebar -->
+        <td width="100" bgcolor="ghostwhite">
+          <!-- (replace contents of this table cell by 
+                dynamically including common/sidebar.html) -->
+          <font face="Verdana,Geneva,Arial" 
+                size="-1" color="steelblue">
+            <b>
+              <a href="home.html">Home</a> <br>
+              &nbsp;<br>
+              <a href="artists.html">Artist</a> <br>
+              <a href="venues.html">Venues</a> <br>
+              <a href="search.html">Search</a> <br>
+              <font color="darkred">Profile</font> <br>
+              &nbsp;<br>
+              <a href="logout.html">Log Out</a> <br>
+              &nbsp;<p><hr height="1">
+            </b>
+            <font size="-2">
+              &nbsp;<br>
+              <a href="home.html">Cancel</a><br>
+              &nbsp;<p>
+            </font>
+          </font>
+        </td>
+        <!-- Page Body -->
+        <td valign="top">
+          <font face="Verdana,Geneva,Arial" size="-1">
+          
+          <!-- *** Start page content *** -->
+            
+            <form action="updateProfile.html">
+              <table>
+                <tr>
+                  <td valign="middle" align="right"> login </td>
+                  <td valign="middle"> <input type="text" value="arthur"> </td>
+                </tr>
+                <tr>
+                  <td valign="middle" align="right"> password </td>
+                  <td valign="middle"> <input type="password" value="TheAnswerIs42"> </td>
+                </tr>
+                <tr>
+                  <td valign="middle" align="right"> confirm password </td>
+                  <td valign="middle"> <input type="text"></td>
+                </tr>
+                <tr> <td>&nbsp;</td> <td></td> </tr>
+                <tr>
+                <tr>
+                  <td valign="middle" align="right"> first name </td>
+                  <td valign="middle"> <input type="text" value="Arthur"> </td>
+                </tr>
+                <tr>
+                  <td valign="middle" align="right"> last name </td>
+                  <td valign="middle"> <input type="text" value="Dent"> </td>
+                </tr>
+                <tr> <td>&nbsp;</td> <td></td> </tr>
+                 <tr>
+                  <td valign="middle" align="right"></td>
+                  <td valign="middle"> <input type="submit" value="update profile"> </td>
+                </tr>
+              </table>
+            </form>
+            
+          <!-- *** End real content *** -->
+          
+          </font>
+        </td>
+        
+        <!-- *** More content here, just this once! *** -->          
+        <td align="center" valign="top">
+          <form action="newProfile.html">
+            Create New<br>
+            Profile<p>
+            <font size="-1">Login</font> <br>
+            <input type="text" size="10"><p>
+            <input type="submit" value="new profile">
+          </form>
+        </td>
+         
+      </tr>
+    </table>
+  </BODY>
+</HTML>

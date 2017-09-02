@@ -1,0 +1,113 @@
+<!-------------------------------------------------------------
+  Dynamusic Site Mockup
+  
+  NEW ARTIST
+  
+  Add description of an artist and her/his list of albums.
+  
+  ------------------------------------------------------------->
+  
+
+<HTML>
+  <HEAD>
+    <TITLE>Dynamusic Artist</TITLE>
+  </HEAD>
+  <BODY>
+    <!-- (replace this entire table by dynamically including 
+          common/header.html) -->
+    <img src="images/Dynamusic.jpg">
+    <table width="700" cellpadding="8">
+      <tr>
+        <td width="100"></td>
+        <td>
+          <!-- Header -->
+          <font face="Verdana,Geneva,Arial" size="+3" color="midnightblue">
+            New Artist 
+          </font>
+          <br>
+          <hr size="8">
+        </td>
+      </tr>
+    </table>
+    <table width="700" cellpadding="8">
+      <tr>
+        <!-- Sidebar -->
+        <td width="100" bgcolor="ghostwhite" valign="top">
+          <!-- (replace contents of this table cell by 
+                dynamically including common/sidebar.html) -->
+          <font face="Verdana,Geneva,Arial" 
+                size="-1" color="steelblue">
+            <b>
+              <a href="home.html">Home</a> <br>
+              &nbsp;<br>
+              <a href="artists.html">Artists</a> <br>
+              <a href="venues.html">Venues</a> <br>
+              <a href="search.html">Search</a> <br>
+              <a href="updateProfile.html">Profile</a> <br>
+              &nbsp;<br>
+              <a href="logout.html">Log Out</a> <br>
+
+            </b>
+          </font>
+        </td>
+        <!-- Page Body -->
+        <td valign="top">
+          <font face="Verdana,Geneva,Arial" size="-1">
+          
+          <!-- *** Start page content *** -->
+            
+            <form action="artistDetails.html">
+              <table cellpadding="10">
+                <tr>
+                  <td valign="middle">
+                    Artist Name:
+                  </td>
+                  <td valign="middle">
+
+                      <!-- DATA(1) Artist name -->
+                      <input type="text"> &nbsp; &nbsp;                       
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="middle">
+                    Image Path:
+                  </td>
+                  <td valign="middle">
+                    
+                      <!-- DATA(2) Image path -->
+                      <input type="text">
+                      
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top">
+                    Description:
+                  </td>
+                  <td valign="top">
+                    
+                    <!-- Data(3) Artist description -->
+                      <textarea cols="60" rows="10" wrap="SOFT">
+                      </textarea>
+                      
+                  </td>
+                </tr>
+                <tr>
+                  <td> </td>
+                  <td valign="top">
+
+                    <!-- Action: create a new artist -->
+                      <input type="submit" value="Create artist entry">
+                      
+                  </td>
+                </tr>
+              </table>
+            </form>
+            
+          <!-- *** End real content *** -->
+          
+          </font>
+        </td>
+      </tr>
+    </table>
+  </BODY>
+</HTML>
