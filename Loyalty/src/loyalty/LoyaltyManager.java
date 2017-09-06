@@ -3,8 +3,11 @@ package loyalty;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.transaction.SystemException;
 import javax.transaction.TransactionManager;
 
+import atg.dtm.TransactionDemarcation;
+import atg.dtm.TransactionDemarcationException;
 import atg.nucleus.GenericService;
 import atg.repository.MutableRepository;
 import atg.repository.MutableRepositoryItem;
@@ -65,17 +68,34 @@ public class LoyaltyManager extends GenericService {
 			logDebug("associating loyalty transaction " + pLoyaltyTransactionid + " to user " + pUserid);
 		MutableRepository mutableRepository = (MutableRepository) getRepository();
 		try {
-			MutableRepositoryItem userItem = mutableRepository.getItemForUpdate(pUserid,"user");  
-			RepositoryItem loyaltyTransactionItem = mutableRepository.getItem(pLoyaltyTransactionid,"loyaltyTransaction");
-			List loyaltyTransactions = (List) userItem.getPropertyValue("loyaltyTransactions");
-			loyaltyTransactions.add(loyaltyTransactionItem);
-			userItem.setPropertyValue("loyaltyTransactions", loyaltyTransactions);
-			mutableRepository.updateItem(userItem);
-		} catch(RepositoryException e) {
-			if (isLoggingError()) {
-				logError(e);
-			}
-			throw e;
+			TransactionDemarcation td = new TransactionDemarcation();
+			td.begin(getTransactionManager(), td.REQUIRES_NEW);
+			try {
+				MutableRepositoryItem userItem = mutableRepository.getItemForUpdate(pUserid,"user");  
+				RepositoryItem loyaltyTransactionItem = mutableRepository.getItem(pLoyaltyTransactionid,"loyaltyTransaction");
+				List loyaltyTransactions = (List) userItem.getPropertyValue("loyaltyTransactions");
+				loyaltyTransactions.add(loyaltyTransactionItem);
+				userItem.setPropertyValue("loyaltyTransactions", loyaltyTransactions);
+				mutableRepository.updateItem(userItem);
+			} catch(RepositoryException e) {
+				if (isLoggingError()) {
+					logError(e);
+				}
+				try {
+					getTransactionManager().setRollbackOnly();
+				}
+				catch (SystemException se) {
+					if (isLoggingError())
+						logError("Unable to set rollback for transaction", se);
+				}
+				throw e;
+			} finally {
+				td.end();
+			} 
+		}
+		catch (TransactionDemarcationException e) {
+			if (isLoggingError()) 
+				logError("creating transaction demarcation failed, no albums deleted", e);
 		}
 	}
 
