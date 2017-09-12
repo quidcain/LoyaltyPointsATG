@@ -10,7 +10,7 @@
     		<property name="id" data-type="string"/>
     		<property name="amount" data-type="int"/>
     		<property name="description" data-type="string"/>
-    		<property name="date" data-type="timestamp"/>
+    		<property name="date" column-name="creation_date" data-type="timestamp"/>
     		<property name="profileId" data-type="string"/>
     	</table>
     </item-descriptor>
