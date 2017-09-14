@@ -172,7 +172,7 @@ CREATE TABLE loyalty_transaction (
 CREATE TABLE loyalty_user (
         user_id               VARCHAR(32)     not null references dps_user(id),
         idx                   VARCHAR(32)     not null,
-        loyaltyTransaction    VARCHAR(32)     not null references loyalty_transaction(id),
+        transaction_id        VARCHAR(32)     not null references loyalty_transaction(id),
         primary key(idx)
 );
 

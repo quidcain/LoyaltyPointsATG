@@ -3,7 +3,7 @@
 <gsa-template>
     <item-descriptor name="user">
     	<table name="loyalty_user" type="multi" id-column-names="user_id" multi-column-name="idx">
-    		<property name="loyaltyTransactions" data-type="list" component-item-type="loyaltyTransaction"
+    		<property name="loyaltyTransactions" column-name="transaction_id" data-type="list" component-item-type="loyaltyTransaction"
                 repository="/loyalty/LoyaltyRepository" category="loyalty"/>
     	</table>
         <property name="loyaltyAmount" property-type="loyalty.LoyaltyAmountPropertyDescriptor" writable="false" data-type="int" 
