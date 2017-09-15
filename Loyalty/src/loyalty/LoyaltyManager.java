@@ -63,20 +63,19 @@ public class LoyaltyManager extends GenericService {
 		}
 	}
 
-	public void associateTransactionWithUser(String pLoyaltyTransactionid, String pUserid) throws RepositoryException {
+	public void associateTransactionWithUser(RepositoryItem loyaltyTransactionItem, String pUserid) throws RepositoryException {
 		if (isLoggingDebug()) 
-			logDebug("associating loyalty transaction " + pLoyaltyTransactionid + " to user " + pUserid);
-		MutableRepository mutableRepository = (MutableRepository) getRepository();
+			logDebug("associating loyalty transaction " + loyaltyTransactionItem + " to user " + pUserid);
+		MutableRepository mutableUserRepository = (MutableRepository) getUserRepository();
 		try {
 			TransactionDemarcation td = new TransactionDemarcation();
 			td.begin(getTransactionManager(), td.REQUIRES_NEW);
 			try {
-				MutableRepositoryItem userItem = mutableRepository.getItemForUpdate(pUserid,"user");  
-				RepositoryItem loyaltyTransactionItem = mutableRepository.getItem(pLoyaltyTransactionid,"loyaltyTransaction");
+				MutableRepositoryItem userItem = mutableUserRepository.getItemForUpdate(pUserid,"user");  
 				List loyaltyTransactions = (List) userItem.getPropertyValue("loyaltyTransactions");
 				loyaltyTransactions.add(loyaltyTransactionItem);
-				userItem.setPropertyValue("loyaltyTransactions", loyaltyTransactions);
-				mutableRepository.updateItem(userItem);
+				userItem.setPropertyValue("LOYALTYTRANSACTIONS", loyaltyTransactions);
+				mutableUserRepository.updateItem(userItem);
 			} catch(RepositoryException e) {
 				if (isLoggingError()) {
 					logError(e);
