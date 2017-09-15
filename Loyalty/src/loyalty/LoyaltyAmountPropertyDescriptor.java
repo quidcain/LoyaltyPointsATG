@@ -10,8 +10,6 @@ public class LoyaltyAmountPropertyDescriptor extends RepositoryPropertyDescripto
 
 	@Override
 	public Object getPropertyValue(RepositoryItemImpl pItem, Object pValue) {
-		if (pValue != null)
-			return pValue;
 		Collection<RepositoryItem> loyaltyTransactions = (Collection<RepositoryItem>) pItem.getPropertyValue("loyaltyTransactions");
 		int loyaltyAmount = 0;
 		for (RepositoryItem transaction : loyaltyTransactions) {
