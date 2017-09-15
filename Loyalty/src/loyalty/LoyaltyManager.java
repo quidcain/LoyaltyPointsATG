@@ -44,7 +44,7 @@ public class LoyaltyManager extends GenericService {
 		return mUserRepository;
 	}
 
-	public String createLoyaltyTransaction(int amount, String description) throws RepositoryException {
+	public String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException {
 		if (isLoggingDebug()) 
 			logDebug("creating loyalty transaction with amount '" + amount + "' and description '" + description + "'");
 		MutableRepository mutableRepository = (MutableRepository) getRepository(); 
@@ -52,6 +52,7 @@ public class LoyaltyManager extends GenericService {
 			MutableRepositoryItem loyaltyTransactionItem = mutableRepository.createItem("loyaltyTransaction");
 			loyaltyTransactionItem.setPropertyValue("amount", amount);
 			loyaltyTransactionItem.setPropertyValue("description", description);
+			loyaltyTransactionItem.setPropertyValue("profileId", profileId);
 			loyaltyTransactionItem.setPropertyValue("date", new Timestamp(System.currentTimeMillis()));
 			mutableRepository.addItem(loyaltyTransactionItem);
 			return loyaltyTransactionItem.getRepositoryId();
@@ -63,15 +64,17 @@ public class LoyaltyManager extends GenericService {
 		}
 	}
 
-	public void associateTransactionWithUser(RepositoryItem loyaltyTransactionItem, String pUserid) throws RepositoryException {
+	public void associateTransactionWithUser(String loyaltyTransactionId, String pUserid) throws RepositoryException {
 		if (isLoggingDebug()) 
-			logDebug("associating loyalty transaction " + loyaltyTransactionItem + " to user " + pUserid);
+			logDebug("associating loyalty transaction " + loyaltyTransactionId + " to user " + pUserid);
 		MutableRepository mutableUserRepository = (MutableRepository) getUserRepository();
+		Repository loyaltyRepository = getRepository();
 		try {
 			TransactionDemarcation td = new TransactionDemarcation();
 			td.begin(getTransactionManager(), td.REQUIRES_NEW);
 			try {
 				MutableRepositoryItem userItem = mutableUserRepository.getItemForUpdate(pUserid,"user");  
+				RepositoryItem loyaltyTransactionItem = loyaltyRepository.getItem(loyaltyTransactionId, "loyaltyTransaction");
 				List loyaltyTransactions = (List) userItem.getPropertyValue("loyaltyTransactions");
 				loyaltyTransactions.add(loyaltyTransactionItem);
 				userItem.setPropertyValue("LOYALTYTRANSACTIONS", loyaltyTransactions);
