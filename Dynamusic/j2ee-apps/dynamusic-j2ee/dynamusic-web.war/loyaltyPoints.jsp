@@ -42,7 +42,7 @@
 							<dsp:param name="queryRQL" value='profileId = :profileId'/>
 							<dsp:param name="repository" value="/loyalty/LoyaltyRepository"/>
 							<dsp:param name="itemDescriptor" value="loyaltyTransaction"/>
-							<dsp:param name="howMany" value="3" />
+							<dsp:param name="howMany" bean="/loyalty/LoyaltyConfig.displayedTransactionsAmount" />
 							<dsp:oparam name="output">
 						  		<tr>
 						  			<td>Amount</td>
