@@ -34,8 +34,7 @@
           <font face="Verdana,Geneva,Arial" size="-1">
           
           <!-- *** Start page content *** -->
-          <h2>Total amount: 3</h2>
-          <dsp:valueof bean="/atg/userprofiling/Profile.id"/>
+          <h2>Total amount: <dsp:valueof bean="/atg/userprofiling/Profile.loyaltyAmount"/></h2>
           <table class="lp-transactions">
 	          <dsp:droplet name="/atg/dynamo/droplet/RQLQueryRange">
 	          	<dsp:setvalue param="profileId" beanvalue="/atg/userprofiling/Profile.id"/>
