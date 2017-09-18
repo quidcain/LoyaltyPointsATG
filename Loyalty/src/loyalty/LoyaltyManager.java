@@ -72,6 +72,7 @@ public class LoyaltyManager extends GenericService {
 		try {
 			TransactionDemarcation td = new TransactionDemarcation();
 			td.begin(getTransactionManager(), td.REQUIRES_NEW);
+			boolean rollback = true;
 			try {
 				MutableRepositoryItem userItem = mutableUserRepository.getItemForUpdate(pUserid,"user");  
 				RepositoryItem loyaltyTransactionItem = loyaltyRepository.getItem(loyaltyTransactionId, "loyaltyTransaction");
@@ -79,6 +80,7 @@ public class LoyaltyManager extends GenericService {
 				loyaltyTransactions.add(loyaltyTransactionItem);
 				userItem.setPropertyValue("LOYALTYTRANSACTIONS", loyaltyTransactions);
 				mutableUserRepository.updateItem(userItem);
+				rollback = false;
 			} catch(RepositoryException e) {
 				if (isLoggingError()) {
 					logError(e);
@@ -92,7 +94,7 @@ public class LoyaltyManager extends GenericService {
 				}
 				throw e;
 			} finally {
-				td.end();
+				td.end(rollback);
 			} 
 		}
 		catch (TransactionDemarcationException e) {
