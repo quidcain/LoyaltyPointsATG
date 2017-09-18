@@ -44,7 +44,7 @@ public class LoyaltyManager extends GenericService {
 		return mUserRepository;
 	}
 
-	public String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException {
+	public String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException, TransactionDemarcationException {
 		if (isLoggingDebug()) 
 			logDebug("creating loyalty transaction with amount '" + amount + "' and description '" + description + "'");
 		MutableRepository mutableRepository = (MutableRepository) getRepository();
@@ -62,9 +62,6 @@ public class LoyaltyManager extends GenericService {
 				rollback = false;
 				return loyaltyTransactionItem.getRepositoryId();
 			} catch(RepositoryException e) {
-				if (isLoggingError()) {
-					logError(e);
-				}
 				try {
 					getTransactionManager().setRollbackOnly();
 				}
@@ -78,13 +75,11 @@ public class LoyaltyManager extends GenericService {
 			} 
 		}
 		catch (TransactionDemarcationException e) {
-			if (isLoggingError()) 
-				logError("creating transaction demarcation failed, no albums deleted", e);
-			return null;
+			throw e;
 		}
 	}
 
-	public void associateTransactionWithUser(String loyaltyTransactionId, String pUserid) throws RepositoryException {
+	public void associateTransactionWithUser(String loyaltyTransactionId, String pUserid) throws RepositoryException, TransactionDemarcationException {
 		if (isLoggingDebug()) 
 			logDebug("associating loyalty transaction " + loyaltyTransactionId + " to user " + pUserid);
 		MutableRepository mutableUserRepository = (MutableRepository) getUserRepository();
@@ -102,9 +97,6 @@ public class LoyaltyManager extends GenericService {
 				mutableUserRepository.updateItem(userItem);
 				rollback = false;
 			} catch(RepositoryException e) {
-				if (isLoggingError()) {
-					logError(e);
-				}
 				try {
 					getTransactionManager().setRollbackOnly();
 				}
@@ -118,8 +110,7 @@ public class LoyaltyManager extends GenericService {
 			} 
 		}
 		catch (TransactionDemarcationException e) {
-			if (isLoggingError()) 
-				logError("creating transaction demarcation failed, no albums deleted", e);
+			throw e;
 		}
 	}
 
