@@ -47,20 +47,40 @@ public class LoyaltyManager extends GenericService {
 	public String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException {
 		if (isLoggingDebug()) 
 			logDebug("creating loyalty transaction with amount '" + amount + "' and description '" + description + "'");
-		MutableRepository mutableRepository = (MutableRepository) getRepository(); 
+		MutableRepository mutableRepository = (MutableRepository) getRepository();
 		try {
-			MutableRepositoryItem loyaltyTransactionItem = mutableRepository.createItem("loyaltyTransaction");
-			loyaltyTransactionItem.setPropertyValue("amount", amount);
-			loyaltyTransactionItem.setPropertyValue("description", description);
-			loyaltyTransactionItem.setPropertyValue("profileId", profileId);
-			loyaltyTransactionItem.setPropertyValue("date", new Timestamp(System.currentTimeMillis()));
-			mutableRepository.addItem(loyaltyTransactionItem);
-			return loyaltyTransactionItem.getRepositoryId();
-		} catch(RepositoryException e) {
-			if (isLoggingError()) {
-				logError(e);
-			}
-			throw e;
+			TransactionDemarcation td = new TransactionDemarcation();
+			td.begin(getTransactionManager(), td.REQUIRES_NEW);
+			boolean rollback = true;
+			try {
+				MutableRepositoryItem loyaltyTransactionItem = mutableRepository.createItem("loyaltyTransaction");
+				loyaltyTransactionItem.setPropertyValue("amount", amount);
+				loyaltyTransactionItem.setPropertyValue("description", description);
+				loyaltyTransactionItem.setPropertyValue("profileId", profileId);
+				loyaltyTransactionItem.setPropertyValue("date", new Timestamp(System.currentTimeMillis()));
+				mutableRepository.addItem(loyaltyTransactionItem);
+				rollback = false;
+				return loyaltyTransactionItem.getRepositoryId();
+			} catch(RepositoryException e) {
+				if (isLoggingError()) {
+					logError(e);
+				}
+				try {
+					getTransactionManager().setRollbackOnly();
+				}
+				catch (SystemException se) {
+					if (isLoggingError())
+						logError("Unable to set rollback for transaction", se);
+				}
+				throw e;
+			} finally {
+				td.end(rollback);
+			} 
+		}
+		catch (TransactionDemarcationException e) {
+			if (isLoggingError()) 
+				logError("creating transaction demarcation failed, no albums deleted", e);
+			return null;
 		}
 	}
 
