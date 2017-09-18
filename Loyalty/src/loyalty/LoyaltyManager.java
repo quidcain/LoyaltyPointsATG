@@ -93,7 +93,6 @@ public class LoyaltyManager extends GenericService {
 				RepositoryItem loyaltyTransactionItem = loyaltyRepository.getItem(loyaltyTransactionId, "loyaltyTransaction");
 				List loyaltyTransactions = (List) userItem.getPropertyValue("loyaltyTransactions");
 				loyaltyTransactions.add(loyaltyTransactionItem);
-				userItem.setPropertyValue("LOYALTYTRANSACTIONS", loyaltyTransactions);
 				mutableUserRepository.updateItem(userItem);
 				rollback = false;
 			} catch(RepositoryException e) {
