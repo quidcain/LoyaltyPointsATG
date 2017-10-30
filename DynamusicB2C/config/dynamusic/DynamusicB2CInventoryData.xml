@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+<import-items>
+<!-- 19 items of type inventory -->
+
+<add-item item-descriptor="inventory" id="inv20028">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:11:48]]></set-property>
+  <set-property name="backorderLevel"><![CDATA[0]]></set-property>
+  <set-property name="stockLevel"><![CDATA[10]]></set-property>
+  <set-property name="displayName"><![CDATA[Life in a Northern Town (Extended)]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50008]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20014">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:08:47]]></set-property>
+  <set-property name="stockLevel"><![CDATA[-1]]></set-property>
+  <set-property name="displayName"><![CDATA[Breakaway]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[2]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50004]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20036">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:13:30]]></set-property>
+  <set-property name="stockLevel"><![CDATA[1000]]></set-property>
+  <set-property name="displayName"><![CDATA[Pop Muzik]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50012]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20004">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:06:01]]></set-property>
+  <set-property name="stockLevel"><![CDATA[100]]></set-property>
+  <set-property name="displayName"><![CDATA[Beatles Anthology 2]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku60006]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20016">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:09:19]]></set-property>
+  <set-property name="stockLevel"><![CDATA[150]]></set-property>
+  <set-property name="displayName"><![CDATA[Let It Be]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50010]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20038">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:13:52]]></set-property>
+  <set-property name="stockLevel"><![CDATA[100]]></set-property>
+  <set-property name="displayName"><![CDATA[Pop Muzik (Extended Version)]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50018]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20008">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:07:13]]></set-property>
+  <set-property name="stockLevel"><![CDATA[10]]></set-property>
+  <set-property name="displayName"><![CDATA[Beatles 1964 Sweden Poster]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50026]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20002">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:05:19]]></set-property>
+  <set-property name="stockLevel"><![CDATA[100]]></set-property>
+  <set-property name="displayName"><![CDATA[Beatles Anthology 1]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[2]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku60004]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv10002">
+  <set-property name="creationDate"><![CDATA[2/10/2006 13:29:43]]></set-property>
+  <set-property name="stockLevel"><![CDATA[10]]></set-property>
+  <set-property name="displayName"><![CDATA[Mickey]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku20002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20030">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:12:11]]></set-property>
+  <set-property name="stockLevel"><![CDATA[250]]></set-property>
+  <set-property name="displayName"><![CDATA[Magic (Album)]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50022]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20040">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:14:32]]></set-property>
+  <set-property name="backorderLevel"><![CDATA[0]]></set-property>
+  <set-property name="stockLevel"><![CDATA[150]]></set-property>
+  <set-property name="displayName"><![CDATA[Pop Muzik (Import)]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50014]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20012">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:08:26]]></set-property>
+  <set-property name="stockLevel"><![CDATA[100]]></set-property>
+  <set-property name="displayName"><![CDATA[Blues on the Bayou]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20006">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:06:53]]></set-property>
+  <set-property name="stockLevel"><![CDATA[10]]></set-property>
+  <set-property name="displayName"><![CDATA[Beatles 1962 Widnes Poster]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50028]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20042">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:14:53]]></set-property>
+  <set-property name="displayName"><![CDATA[Post]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="stockThreshold"><![CDATA[-1]]></set-property>
+  <set-property name="catalogRefId"><![CDATA[sku50024]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20034">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:13:04]]></set-property>
+  <set-property name="stockLevel"><![CDATA[50]]></set-property>
+  <set-property name="displayName"><![CDATA[Mickey (import)]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku40002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20010">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:07:59]]></set-property>
+  <set-property name="preorderLevel"><![CDATA[100]]></set-property>
+  <set-property name="backorderLevel"><![CDATA[0]]></set-property>
+  <set-property name="stockLevel"><![CDATA[0]]></set-property>
+  <set-property name="displayName"><![CDATA[Because of You]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku60002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20044">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:15:10]]></set-property>
+  <set-property name="stockLevel"><![CDATA[1000]]></set-property>
+  <set-property name="displayName"><![CDATA[Whip It]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku10002]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20032">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:12:34]]></set-property>
+  <set-property name="stockLevel"><![CDATA[250]]></set-property>
+  <set-property name="displayName"><![CDATA[Magic (Single)]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50020]]></set-property>
+</add-item>
+
+<add-item item-descriptor="inventory" id="inv20026">
+  <set-property name="creationDate"><![CDATA[4/16/2006 15:11:20]]></set-property>
+  <set-property name="backorderLevel"><![CDATA[10]]></set-property>
+  <set-property name="stockLevel"><![CDATA[150]]></set-property>
+  <set-property name="displayName"><![CDATA[Life in a Northern Town]]></set-property>
+  <!-- export is false   <set-property name="version"><![CDATA[1]]></set-property>  -->
+  <set-property name="catalogRefId"><![CDATA[sku50006]]></set-property>
+</add-item>
+
+</import-items>
+
+</gsa-template>

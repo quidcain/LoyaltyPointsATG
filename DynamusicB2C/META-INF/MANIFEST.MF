@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+ATG-Config-Path: config/
+ATG-Class-Path: classes/
+ATG-Required:  B2CCommerce DCS.AbandonedOrderServices
+ATG-J2EE: j2ee-apps/dynamusicb2c-j2ee
+ATG-EAR-Module: j2ee-apps/dynamusicb2c-j2ee
