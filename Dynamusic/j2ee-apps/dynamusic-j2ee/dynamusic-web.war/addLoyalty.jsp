@@ -49,7 +49,7 @@
 		                </dsp:oparam>
 		              </dsp:droplet>
 		              <label for="user">User</label>
-		              <dsp:select bean="LoyaltyTransactionFormHandler.value.profileId" id="user">
+		              <dsp:select bean="LoyaltyTransactionFormHandler.profileId" id="user">
 										<dsp:droplet name="/atg/dynamo/droplet/RQLQueryForEach">
 											<dsp:param name="queryRQL" value='ALL ORDER BY name'/>
 											<dsp:param name="repository" value="/atg/userprofiling/ProfileAdapterRepository"/>
@@ -66,9 +66,9 @@
 										</dsp:droplet>
 									</dsp:select>
 									<label for="amount">Amount</label>
-									<dsp:input bean="LoyaltyTransactionFormHandler.value.amount" type="text"  id="amount"/>
+									<dsp:input bean="LoyaltyTransactionFormHandler.amount" type="text"  id="amount"/>
 									<label for ="description">Description</label>
-									<dsp:textarea bean="LoyaltyTransactionFormHandler.value.description" maxlength="1000" id="description"></dsp:textarea>
+									<dsp:textarea bean="LoyaltyTransactionFormHandler.description" maxlength="1000" id="description"></dsp:textarea>
 		            	<dsp:input type="submit" bean="LoyaltyTransactionFormHandler.create"/>
 	            	</dsp:form>
 							</dsp:oparam>
