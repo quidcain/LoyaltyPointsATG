@@ -42,22 +42,16 @@ public class LoyaltyTransactionFormHandler extends GenericFormHandler {
 				try {
 					loyaltyTransactionId = loyaltyManager.createLoyaltyTransaction(amount, description, profileId);
 				} catch(RepositoryException e) {
-					if (isLoggingError())
-						logError("Unable to create loyalty transaction", e);
 		            addFormException(new DropletException("Unable to create loyalty transaction"));	
 				}
 				try {
 					if (loyaltyTransactionId != null)
 						loyaltyManager.associateTransactionWithUser(loyaltyTransactionId, profileId);
 				} catch(RepositoryException e) {
-					if (isLoggingError())
-						logError("Unable to associate loyalty transaction to user", e);
-		            addFormException(new DropletException("Unable to associate loyalty transaction to user"));	
+		            addFormException(new DropletException("Unable to associate loyalty transaction with user"));	
 				}
 			} catch (TransactionDemarcationException e) {
-				if (isLoggingError()) 
-					logError("creating transaction demarcation failed, no loyalty points added", e);
-				addFormException(new DropletException("creating transaction demarcation failed, no loyalty points added"));	
+				addFormException(new DropletException("Creating of transaction demarcation failed, no loyalty points added"));	
 			}
 		}
 		return true;
