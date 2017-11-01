@@ -37,21 +37,10 @@ public class LoyaltyTransactionFormHandler extends GenericFormHandler {
 			DynamoHttpServletResponse arg1) throws ServletException,
 			IOException {
 		if (isValid()) {
-			String loyaltyTransactionId = null;
-			try{
-				try {
-					loyaltyTransactionId = loyaltyManager.createLoyaltyTransaction(amount, description, profileId);
-				} catch(RepositoryException e) {
-		            addFormException(new DropletException("Unable to create loyalty transaction"));	
-				}
-				try {
-					if (loyaltyTransactionId != null)
-						loyaltyManager.associateTransactionWithUser(loyaltyTransactionId, profileId);
-				} catch(RepositoryException e) {
-		            addFormException(new DropletException("Unable to associate loyalty transaction with user"));	
-				}
-			} catch (TransactionDemarcationException e) {
-				addFormException(new DropletException("Creating of transaction demarcation failed, no loyalty points added"));	
+			try {
+				loyaltyManager.addLoyaltyPoints(amount, description, profileId);
+			} catch(Exception e) {
+				addFormException(new DropletException("Unable to add loyalty points due to internal problems", e));	
 			}
 		}
 		return true;

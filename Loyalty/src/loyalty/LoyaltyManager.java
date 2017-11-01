@@ -44,73 +44,51 @@ public class LoyaltyManager extends GenericService {
 		return mUserRepository;
 	}
 
-	public String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException, TransactionDemarcationException {
+	public void addLoyaltyPoints(int amount, String description, String profileId) throws RepositoryException, TransactionDemarcationException {
+		TransactionDemarcation td = new TransactionDemarcation();
+		td.begin(getTransactionManager(), td.REQUIRES_NEW);
+		boolean rollback = true;
+		try {
+			String loyaltyTransactionId = createLoyaltyTransaction(amount, description, profileId);
+			associateTransactionWithUser(loyaltyTransactionId, profileId);
+			rollback = false;
+		} catch(RepositoryException e) {
+			try {
+				getTransactionManager().setRollbackOnly();
+			}
+			catch (SystemException se) {
+				if (isLoggingError())
+					logError("Unable to set rollback for transaction", se);
+			}
+			throw e;
+		} finally {
+			td.end(rollback);
+		} 
+	}
+	
+	private String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException, TransactionDemarcationException {
 		if (isLoggingDebug()) 
 			logDebug("creating loyalty transaction with amount '" + amount + "' and description '" + description + "'");
 		MutableRepository mutableRepository = (MutableRepository) getRepository();
-		try {
-			TransactionDemarcation td = new TransactionDemarcation();
-			td.begin(getTransactionManager(), td.REQUIRES_NEW);
-			boolean rollback = true;
-			try {
-				MutableRepositoryItem loyaltyTransactionItem = mutableRepository.createItem("loyaltyTransaction");
-				loyaltyTransactionItem.setPropertyValue("amount", amount);
-				loyaltyTransactionItem.setPropertyValue("description", description);
-				loyaltyTransactionItem.setPropertyValue("profileId", profileId);
-				loyaltyTransactionItem.setPropertyValue("date", new Timestamp(System.currentTimeMillis()));
-				mutableRepository.addItem(loyaltyTransactionItem);
-				rollback = false;
-				return loyaltyTransactionItem.getRepositoryId();
-			} catch(RepositoryException e) {
-				try {
-					getTransactionManager().setRollbackOnly();
-				}
-				catch (SystemException se) {
-					if (isLoggingError())
-						logError("Unable to set rollback for transaction", se);
-				}
-				throw e;
-			} finally {
-				td.end(rollback);
-			} 
-		}
-		catch (TransactionDemarcationException e) {
-			throw e;
-		}
+		MutableRepositoryItem loyaltyTransactionItem = mutableRepository.createItem("loyaltyTransaction");
+		loyaltyTransactionItem.setPropertyValue("amount", amount);
+		loyaltyTransactionItem.setPropertyValue("description", description);
+		loyaltyTransactionItem.setPropertyValue("profileId", profileId);
+		loyaltyTransactionItem.setPropertyValue("date", new Timestamp(System.currentTimeMillis()));
+		mutableRepository.addItem(loyaltyTransactionItem);
+		return loyaltyTransactionItem.getRepositoryId();
 	}
 
-	public void associateTransactionWithUser(String loyaltyTransactionId, String pUserid) throws RepositoryException, TransactionDemarcationException {
+	private void associateTransactionWithUser(String loyaltyTransactionId, String pUserid) throws RepositoryException, TransactionDemarcationException {
 		if (isLoggingDebug()) 
 			logDebug("associating loyalty transaction " + loyaltyTransactionId + " to user " + pUserid);
 		MutableRepository mutableUserRepository = (MutableRepository) getUserRepository();
 		Repository loyaltyRepository = getRepository();
-		try {
-			TransactionDemarcation td = new TransactionDemarcation();
-			td.begin(getTransactionManager(), td.REQUIRES_NEW);
-			boolean rollback = true;
-			try {
-				MutableRepositoryItem userItem = mutableUserRepository.getItemForUpdate(pUserid,"user");  
-				RepositoryItem loyaltyTransactionItem = loyaltyRepository.getItem(loyaltyTransactionId, "loyaltyTransaction");
-				List loyaltyTransactions = (List) userItem.getPropertyValue("loyaltyTransactions");
-				loyaltyTransactions.add(loyaltyTransactionItem);
-				mutableUserRepository.updateItem(userItem);
-				rollback = false;
-			} catch(RepositoryException e) {
-				try {
-					getTransactionManager().setRollbackOnly();
-				}
-				catch (SystemException se) {
-					if (isLoggingError())
-						logError("Unable to set rollback for transaction", se);
-				}
-				throw e;
-			} finally {
-				td.end(rollback);
-			} 
-		}
-		catch (TransactionDemarcationException e) {
-			throw e;
-		}
+		MutableRepositoryItem userItem = mutableUserRepository.getItemForUpdate(pUserid,"user");  
+		RepositoryItem loyaltyTransactionItem = loyaltyRepository.getItem(loyaltyTransactionId, "loyaltyTransaction");
+		List loyaltyTransactions = (List) userItem.getPropertyValue("loyaltyTransactions");
+		loyaltyTransactions.add(loyaltyTransactionItem);
+		mutableUserRepository.updateItem(userItem);
 	}
 
 	public LoyaltyManager() {
