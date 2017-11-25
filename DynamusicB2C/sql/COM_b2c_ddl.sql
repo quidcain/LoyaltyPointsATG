@@ -33,6 +33,8 @@ drop table dynamusic_album_product;
 drop table dynamusic_artist;
 drop table dynamusic_product;
 drop table dynamusic_item_bought;
+drop table loyalty_transaction;
+drop table loyalty_user;
 
 commit work;
 
@@ -289,6 +291,22 @@ CREATE TABLE dynamusic_album_songs (
 );
 
 CREATE INDEX dynamusic_album_songs_album_idx ON dynamusic_album_songs(album_id);
+
+CREATE TABLE loyalty_transaction (
+        id                      VARCHAR(32)     not null,
+        amount                  INTEGER         not null,
+        description             LONG VARCHAR    null,
+        creation_date           TIMESTAMP       null,
+        profileId               VARCHAR(32)     not null references dps_user(id),
+        primary key(id)
+);
+
+CREATE TABLE loyalty_user (
+        user_id               VARCHAR(32)     not null references dps_user(id),
+        idx                   VARCHAR(32)     not null,
+        transaction_id        VARCHAR(32)     not null references loyalty_transaction(id),
+        primary key(user_id, idx)
+);
 
 commit work;
 
