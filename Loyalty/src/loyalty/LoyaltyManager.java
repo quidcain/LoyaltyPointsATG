@@ -66,7 +66,7 @@ public class LoyaltyManager extends GenericService {
 		} 
 	}
 	
-	private String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException, TransactionDemarcationException {
+	private String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException {
 		if (isLoggingDebug()) 
 			logDebug("creating loyalty transaction with amount '" + amount + "' and description '" + description + "'");
 		MutableRepository mutableRepository = (MutableRepository) getRepository();
@@ -79,7 +79,7 @@ public class LoyaltyManager extends GenericService {
 		return loyaltyTransactionItem.getRepositoryId();
 	}
 
-	private void associateTransactionWithUser(String loyaltyTransactionId, String pUserid) throws RepositoryException, TransactionDemarcationException {
+	private void associateTransactionWithUser(String loyaltyTransactionId, String pUserid) throws RepositoryException {
 		if (isLoggingDebug()) 
 			logDebug("associating loyalty transaction " + loyaltyTransactionId + " to user " + pUserid);
 		MutableRepository mutableUserRepository = (MutableRepository) getUserRepository();
