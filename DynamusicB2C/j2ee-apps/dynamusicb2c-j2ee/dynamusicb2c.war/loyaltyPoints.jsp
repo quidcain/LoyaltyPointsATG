@@ -39,6 +39,7 @@
 	          <dsp:droplet name="/atg/dynamo/droplet/RQLQueryRange">
 	          	<dsp:setvalue param="profileId" beanvalue="/atg/userprofiling/Profile.id"/>
 							<dsp:param name="queryRQL" value='profileId = :profileId'/>
+							<dsp:param name="sortProperties" value="-date"/>
 							<dsp:param name="repository" value="/loyalty/LoyaltyRepository"/>
 							<dsp:param name="itemDescriptor" value="loyaltyTransaction"/>
 							<dsp:param name="howMany" bean="/loyalty/LoyaltyConfig.displayedTransactionsAmount" />
