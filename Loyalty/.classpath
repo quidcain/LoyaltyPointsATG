@@ -11,5 +11,8 @@
 	<classpathentry kind="lib" path="C:/ATG/ATG2007.1/DAS/lib/servlet.jar"/>
 	<classpathentry kind="lib" path="C:/ATG/ATG2007.1/DAS/lib/ice.jar"/>
 	<classpathentry kind="lib" path="C:/ATG/ATG2007.1/DAS/solid/SolidDriver2.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/B2CCommerce"/>
+	<classpathentry kind="lib" path="C:/ATG/ATG2007.1/DCS/lib/classes.jar"/>
+	<classpathentry kind="lib" path="C:/ATG/ATG2007.1/DCS/lib/resources.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
