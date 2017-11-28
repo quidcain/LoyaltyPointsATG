@@ -1,7 +1,7 @@
 <!-- ATG Training -->
 <!-- Creating Commerce Applications -->
 <!-- page to review and confirm order -->
-<!-- Last modified: 11 Apr 06 by KL -->
+<!-- Last modified: 1 May 07 by RM -->
 
 <!-- Title: Order Confirm -->
 
@@ -30,7 +30,6 @@
           <font face="Verdana,Geneva,Arial" color="midnightblue">
 
 
-
 <!-- Error handling -->
 <dsp:droplet name="/atg/dynamo/droplet/Switch">
 <dsp:param bean="ExpressCheckoutFormHandler.formError" name="value"/>
@@ -52,8 +51,12 @@
   <b>Total:</b> <dsp:valueof bean="ShoppingCart.current.priceInfo.total" converter="currency">no total</dsp:valueof>
 <p>
 
-
-<!-- Enter form with confirm order button here -->
+Please click the "Confirm Order" button to finalize your order.<p>
+<dsp:form action="orderconfirm.jsp" method="post">
+  <dsp:input type="hidden" bean="ExpressCheckoutFormHandler.commitOrder" value="true"/>
+  <dsp:input type="hidden" bean="ExpressCheckoutFormHandler.expressCheckoutSuccessURL" value="orderstatus.jsp"/>
+  <dsp:input bean="ExpressCheckoutFormHandler.expressCheckout" type="submit" value="Confirm Order"/>
+</dsp:form>
 
 </font></td></tr></table>
 </body>

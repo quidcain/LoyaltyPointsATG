@@ -31,6 +31,7 @@
                 <dsp:oparam name="false">
                     <a href="updateProfile.jsp">Profile</a> <br>
                     <a href="playlists.jsp">Playlists</a> <br>
+                    <a href="loyaltyPoints.jsp">Loyalty&nbsp;points</a> <br>
                     <a href="uploadsong.jsp">Upload Song</a><br>
                     <br>
                     <a href="logout.jsp">Log Out</a> <br>

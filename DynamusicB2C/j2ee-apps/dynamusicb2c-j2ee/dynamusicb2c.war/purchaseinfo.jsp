@@ -112,7 +112,7 @@
   <b>Phone:</b>
   <dsp:input type="text" bean="ExpressCheckoutFormHandler.shippingGroup.shippingAddress.phoneNumber"
   	beanvalue="Profile.shippingAddress.phoneNumber" size="30"/><P>
-
+	</p>
 <!-- Billing information -->  
   <font face="Verdana,Geneva,Arial" size="+2" color="midnightblue">Billing Information</font><br>
   Please enter your name as it appears on your credit card.<br>
@@ -149,20 +149,18 @@
     <dsp:option value="12"/>December
   </dsp:select>
   Year: <dsp:select bean="ExpressCheckoutFormHandler.paymentGroup.expirationYear">  
-    <dsp:option value="2008"/>2008
-    <dsp:option value="2009"/>2009
-    <dsp:option value="2010" selected="true"/>2010
-    <dsp:option value="2011"/>2011
-    <dsp:option value="2012"/>2012
-    <dsp:option value="2013"/>2013
-    <dsp:option value="2014"/>2014
+    <dsp:option value="2017"/>2017
+    <dsp:option value="2018"/>2018
+    <dsp:option value="2019" selected="true"/>2019
+    <dsp:option value="2020"/>2020
   </dsp:select>
+</p>
 <p>  
 
 <%-- Chapter 8, Ex. 1, Step 3: Create submit button --%>
 
-
-
+<dsp:input bean="ExpressCheckoutFormHandler.expressCheckout" type="submit" value="Confirm Order"/>
+</p>
 </dsp:form>
 </font>
 </td></tr></table>
