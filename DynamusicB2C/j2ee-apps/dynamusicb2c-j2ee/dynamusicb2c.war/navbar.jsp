@@ -21,10 +21,10 @@ genericproduct.jsp, cart.jsp,and processorder.jsp.
               <dsp:droplet name="Switch">
                   <dsp:param bean="Profile.transient" name="value"/>
                   <dsp:oparam name="false">
-                       <dsp:a href="logout.jsp">Logout</dsp:a>
+                       <dsp:a href="logout.jsp">Log Out</dsp:a>
                   </dsp:oparam>
                   <dsp:oparam name="true">
-                       <dsp:a href="login.jsp">Login</dsp:a> or <dsp:a href="newProfile.jsp">Register</dsp:a>
+                       <dsp:a href="login.jsp">Log In</dsp:a> or <dsp:a href="newProfile.jsp">Register</dsp:a>
                   </dsp:oparam>
               </dsp:droplet><br><br>
               <a href="home.jsp">Dynamusic Home</a><br><br>

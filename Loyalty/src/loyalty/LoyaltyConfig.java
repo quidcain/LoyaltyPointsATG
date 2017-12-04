@@ -5,7 +5,7 @@ public class LoyaltyConfig {
 	private int displayedTransactionsAmount;
 	private double lpEarnAmount;
 	private double purchaseRate;
-	private int maxLpOrderPart;
+	private double maxLpOrderPart;
 	
 	public LoyaltyConfig() {
 	}
@@ -34,11 +34,11 @@ public class LoyaltyConfig {
 		this.purchaseRate = purchaseRate;
 	}
 
-	public int getMaxLpOrderPart() {
+	public double getMaxLpOrderPart() {
 		return maxLpOrderPart;
 	}
 
-	public void setMaxLpOrderPart(int maxLpOrderPart) {
+	public void setMaxLpOrderPart(double maxLpOrderPart) {
 		this.maxLpOrderPart = maxLpOrderPart;
 	}
 	

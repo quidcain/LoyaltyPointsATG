@@ -66,6 +66,19 @@ public class LoyaltyManager extends GenericService {
 		} 
 	}
 	
+	public int getLoyaltyPointsOfUser(String profileId) {
+		Repository userRepository = getUserRepository();
+		Integer loyaltyAmount;
+		try {
+			RepositoryItem user = userRepository.getItem(profileId, "user");
+			loyaltyAmount = (Integer) user.getPropertyValue("loyaltyAmount");
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+			return 0;
+		}
+		return loyaltyAmount;
+	}
+	
 	private String createLoyaltyTransaction(int amount, String description, String profileId) throws RepositoryException {
 		if (isLoggingDebug()) 
 			logDebug("creating loyalty transaction with amount '" + amount + "' and description '" + description + "'");

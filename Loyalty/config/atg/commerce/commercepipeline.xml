@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE pipelinemanager
+        PUBLIC "-//Art Technology Group, Inc.//DTD Dynamo Pipeline Manager//EN"
+        'http://www.atg.com/dtds/pipelinemanager/pipelinemanager_1.0.dtd'>
+        
+<pipelinemanager>
+	<pipelinechain name="validatePaymentGroup">
+  	<pipelinelink name="dispatchOnPGType">
+      <transition returnvalue="7" link="validateLoyaltyPoints"/>
+    </pipelinelink>
+    <pipelinelink name="validateLoyaltyPoints">
+      <processor jndi="/atg/commerce/order/processor/ValidateLoyaltyPoints"/>
+    </pipelinelink>
+  </pipelinechain>
+</pipelinemanager>

@@ -1,16 +1,11 @@
 package loyalty;
 
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 
 import atg.droplet.DropletException;
 import atg.droplet.GenericFormHandler;
-import atg.dtm.TransactionDemarcationException;
-import atg.repository.RepositoryException;
-import atg.repository.servlet.RepositoryFormHandler;
 import atg.servlet.DynamoHttpServletRequest;
 import atg.servlet.DynamoHttpServletResponse;
 

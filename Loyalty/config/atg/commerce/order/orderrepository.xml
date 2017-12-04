@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE gsa-template PUBLIC "-//Art Technology Group, Inc.//DTD General SQL Adapter//EN" "http://www.atg.com/dtds/gsa/gsa_1.0.dtd">
 <gsa-template>
+		<item-descriptor name="paymentGroup">
+			<table name="dcspp_pay_group" type="primary">
+				<property name="type">
+					<option code="4" value="loyaltyPoints"/>
+				</property>
+			</table>
+		</item-descriptor>
+		
     <item-descriptor name="loyaltyPoints" super-type="paymentGroup" sub-type-value="loyaltyPoints">
-    	<table name="dcspp_loyalty_points" type="primary" id-column-names="payment_group_id">
+    	<table name="dcspp_loyalty_points" type="auxiliary" id-column-names="payment_group_id">
     		<property name="numberOfPoints" column-name="points_number" data-type="int" category="loyalty"/>
     	</table>
     </item-descriptor>

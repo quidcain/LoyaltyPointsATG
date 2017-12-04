@@ -6,7 +6,10 @@ import javax.servlet.ServletException;
 
 import loyalty.LoyaltyConfig;
 import loyalty.LoyaltyManager;
+import atg.commerce.CommerceException;
+import atg.commerce.order.LoyaltyPoints;
 import atg.commerce.order.Order;
+import atg.commerce.order.PaymentGroup;
 import atg.dtm.TransactionDemarcationException;
 import atg.repository.RepositoryException;
 import atg.servlet.DynamoHttpServletRequest;
@@ -15,6 +18,25 @@ import atg.servlet.DynamoHttpServletResponse;
 public class LoyaltyExpressCheckoutFormHandler extends ExpressCheckoutFormHandler {
 	private LoyaltyManager loyaltyManager;
 	private LoyaltyConfig loyaltyConfig;
+	
+	public void preExpressCheckout(DynamoHttpServletRequest pRequest,
+	        DynamoHttpServletResponse pResponse) throws ServletException, IOException {
+	    Order order = getOrder();
+	    if (order.getPaymentGroups().size() < 2) {
+	        try {
+	        	LoyaltyPoints loyaltyPoints = (LoyaltyPoints) getPaymentGroupManager().createPaymentGroup("loyaltyPoints");
+	        	PaymentGroup existingPaymentGroup = (PaymentGroup) order.getPaymentGroups().get(0);
+	        	loyaltyPoints.setAmount(existingPaymentGroup.getAmount() / 2);
+	        	loyaltyPoints.setNumberOfPoints((int)loyaltyPoints.getAmount());
+	        	existingPaymentGroup.setAmount(existingPaymentGroup.getAmount() / 2);
+	            getPaymentGroupManager().addPaymentGroupToOrder(order, loyaltyPoints);
+	        } catch (CommerceException e) {
+	            if (isLoggingError()) {
+	                logError(e);
+	            }
+	        }
+	    }
+	}
 	
 	public void postExpressCheckout(DynamoHttpServletRequest pRequest,
             DynamoHttpServletResponse pResponse) throws ServletException, IOException {
@@ -56,4 +78,5 @@ public class LoyaltyExpressCheckoutFormHandler extends ExpressCheckoutFormHandle
 	public void setLoyaltyConfig(LoyaltyConfig loyaltyConfig) {
 		this.loyaltyConfig = loyaltyConfig;
 	}
+	
 }
