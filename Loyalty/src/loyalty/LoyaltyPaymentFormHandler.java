@@ -51,6 +51,7 @@ public class LoyaltyPaymentFormHandler extends PurchaseProcessFormHandler {
 		        	getPaymentGroupManager().addPaymentGroupToOrder(order, loyaltyPoints);
 		        	getOrderManager().addOrderAmountToPaymentGroup(order, loyaltyPoints.getId(), loyaltyPrice);
 		        	getOrderManager().addRemainingOrderAmountToPaymentGroup(order, existingPaymentGroup.getId());
+		        	getOrderManager().updateOrder(order);
 		        } catch (CommerceException e) {
 		            if (isLoggingError()) {
 		                logError(e);
