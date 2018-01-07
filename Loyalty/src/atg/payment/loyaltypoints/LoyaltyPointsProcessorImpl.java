@@ -19,6 +19,14 @@ public class LoyaltyPointsProcessorImpl extends GenericService implements Loyalt
 			logDebug("Authorizing payment with"
 					+ loyaltyPointsInfo.getNumberOfPoints() + "loyalty points for user with id"
 					+ loyaltyPointsInfo.getUserId());
+		try {
+			loyaltyManager.addLoyaltyPoints(-loyaltyPointsInfo.getNumberOfPoints(), 
+					loyaltyPointsInfo.getOrderId(), loyaltyPointsInfo.getUserId());
+		} catch (RepositoryException e) {
+			e.printStackTrace();
+		} catch (TransactionDemarcationException e) {
+			e.printStackTrace();
+		}
 		return new PaymentStatusImpl(Long.toString(System.currentTimeMillis()), 
 				loyaltyPointsInfo.getAmount(), true, "", new Date());
 	}
@@ -49,14 +57,6 @@ public class LoyaltyPointsProcessorImpl extends GenericService implements Loyalt
 			logDebug("Crediting payment with"
 					+ loyaltyPointsInfo.getNumberOfPoints() + "loyalty points for user with id"
 					+ loyaltyPointsInfo.getUserId());
-		try {
-			loyaltyManager.addLoyaltyPoints(-loyaltyPointsInfo.getNumberOfPoints(), 
-					loyaltyPointsInfo.getOrderId(), loyaltyPointsInfo.getUserId());
-		} catch (RepositoryException e) {
-			e.printStackTrace();
-		} catch (TransactionDemarcationException e) {
-			e.printStackTrace();
-		}
 		return new PaymentStatusImpl(Long.toString(System.currentTimeMillis()), 
 				loyaltyPointsInfo.getAmount(), true, "", new Date());
 	}
