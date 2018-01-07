@@ -5,7 +5,7 @@
 
 <pipelinemanager>
 
-	<pipelinechain name="loyaltyPointProcessorChain" transaction="TX_REQUIRED" headlink="createLoyaltyPointsInfo">
+	<pipelinechain name="loyatyPointsProcessorChain" transaction="TX_REQUIRED" headlink="createLoyaltyPointsInfo">
 	  <pipelinelink name="createLoyaltyPointsInfo" transaction="TX_MANDATORY">
 	    <processor jndi="/atg/commerce/payment/processor/CreateLoyaltyPointsInfo"/>
 	    <transition returnvalue="1" link="processLoyaltyPoints"/>

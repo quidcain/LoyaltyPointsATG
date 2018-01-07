@@ -30,7 +30,7 @@ public class ProcValidateLoyaltyPoints extends GenericService implements Pipelin
 			} else if(amount > orderPrice * loyaltyConfig.getMaxLpOrderPart()) {
 				pipelineResult.addError("PointsValueExceeded", "Store points cannot pay for more than "
 						+ loyaltyConfig.getMaxLpOrderPart()  + " of an order");
-			} else if (amount != loyaltyConfig.getPurchaseRate() * paymentLoyaltyAmount) {
+			} else if (amount < loyaltyConfig.getPurchaseRate() * paymentLoyaltyAmount) {
 				pipelineResult.addError("WrongExchangeRate", "Payment groups's loyalty points were wrong calculated"
 						+ loyaltyConfig.getMaxLpOrderPart()  + " of an order");
 			}

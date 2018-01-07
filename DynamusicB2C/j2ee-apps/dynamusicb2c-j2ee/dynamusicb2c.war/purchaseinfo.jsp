@@ -53,7 +53,7 @@
 	<dsp:input type="hidden" bean="ExpressCheckoutFormHandler.commitOrder" value="false"/>
 	<dsp:input type="hidden" bean="ExpressCheckoutFormHandler.paymentGroupNeeded" value="false"/>
 	<dsp:input type="hidden" bean="ExpressCheckoutFormHandler.shippingGroupNeeded" value="false"/>
-	<dsp:input type="hidden" bean="ExpressCheckoutFormHandler.expressCheckoutSuccessURL" value="orderconfirm.jsp"/>
+	<dsp:input type="hidden" bean="ExpressCheckoutFormHandler.expressCheckoutSuccessURL" value="loyaltyPayment.jsp"/>
 	
   <font face="Verdana,Geneva,Arial" size="+2" color="midnightblue">Shipping Method</font><br>
 <%-- Shipping Methods Select Box --%>
